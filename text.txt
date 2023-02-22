@@ -1,0 +1,17 @@
+create a function call getComputerChoice
+
+it will return a random string from an array
+
+create a second function called getPlayerChoice
+
+it will return a random string from an array
+
+create a 3rd function called singleRound with two params(playerSelection, computerSelection)
+
+the function will return "You win!" or "You lose" with description of the round (example Scissors beats Paper)
+Use a if else statement
+
+Paper Beats Rock
+Rock Beats Scissors
+Scissors Beats Paper
+
