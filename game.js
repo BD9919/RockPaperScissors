@@ -1,6 +1,6 @@
 //creates the cpu Random choice in the RPS game
 const choices = ["rock", "paper", "scissors"];
-const cpuRandom = Math.floor(Math.random() * choices.length);
+const cpuRandom = Math.round(Math.random() * choices.length);
 let cpuSelected = (choices[cpuRandom]);
 
 // playRound sets up the rules of the RPS game.
@@ -40,13 +40,14 @@ let cpuSelected = (choices[cpuRandom]);
         }
     }
         if (playerScore > computerScore) {
-            console.log(`Congratulations! You win the game ${playerScore}:${computerScore}`);
+            console.log(`You win the game ${playerScore}:${computerScore}`);
         } else if (computerScore > playerScore) {
-            console.log(`Sorry, you lost the game ${playerScore}:${computerScore}`);
+            console.log(`You lost the game ${playerScore}:${computerScore}`);
         } else {
-            console.log(`The game is tied ${playerScore}:${computerScore}`);
+            console.log(`You tied ${playerScore}:${computerScore}`);
   }
 }
 
 
 game()
+

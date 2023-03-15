@@ -4,10 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="game.js"></script>
-
-    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body></body>
+  
+    <title>Rock Paper Scissors</title>
+    <div class="scoreboard" id="scoreboard">
+      
+      <h1>Scoreboard</h1>
+      <h3>First To 5 Wins!</h3>
+
+      <div class="innerscore" id="innerscore">
+       
+        <div class="playerScore">
+          <h4>Player</h4>
+          <h2 id="playerScoreText">0</h2>
+        </div>
+        
+        <div class="cpuScore">  
+            <h4>Computer</h4>
+            <h2 id="cpuScoreText">0</h2>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id="textResult"></div>
+    <div id="fightStats"></div>
+    <br>
+    <div class="buttonDiv" id="buttonDiv">  
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+      <script src="gameReWork.js"></script>
+</body>
 </html>

@@ -15,3 +15,26 @@ Paper Beats Rock
 Rock Beats Scissors
 Scissors Beats Paper
 
+
+reactoring of functions built
+
+I want to return true for a playerSelection win
+and a true for a computerSelection win.
+
+if they tie i do not want to return "its a tie".
+
+UPDATING UI Walk through;
+
+When i click a button choice i want to have the cpu randomly generate a choice. and determine
+who the winner is.
+
+i want the scoreboard to keep track of each round, so when the user wins i want to add one to the
+player scoreboard, and when the cpu wins. i want to add one to the cpu scoreboard.
+
+when the score for either player makes it to 5 i want the let the user know if they won or lost.
+
+after the game is won i must disable the buttons so that they are no longer clickable.
+
+i should bring up a prompt/alert that will give the user a chance to restart the RPS game.
+
+i want to be able to restart the game after the final score has been reached.
