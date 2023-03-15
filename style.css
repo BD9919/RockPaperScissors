@@ -1,0 +1,25 @@
+#innerscore {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#scoreboard {
+    text-align: center;
+}
+
+#buttonDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#textResult {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#fightStats {
+    text-align: center;
+}
