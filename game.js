@@ -1,53 +1,90 @@
-//creates the cpu Random choice in the RPS game
-const choices = ["rock", "paper", "scissors"];
-const cpuRandom = Math.round(Math.random() * choices.length);
-let cpuSelected = (choices[cpuRandom]);
-
-// playRound sets up the rules of the RPS game.
-
-    function playRound(playerSelection, computerSelection) {
-        playerSelection = playerSelection.toLowerCase();
-
-            if (playerSelection === computerSelection) {
-                return "It's a tie!";
-            } else if (
-                (playerSelection === "rock" && computerSelection === "scissors") ||
-                (playerSelection === "paper" && computerSelection === "rock") ||
-                (playerSelection === "scissors" && computerSelection === "paper")
-            ) {
-                return `You Win! ${playerSelection} beats ${computerSelection}`;
-            } else {
-                return `You Lose! ${computerSelection} beats ${playerSelection}`;
-            }
-}
-
-// game Keeps score, invokes the playRound function as the rules, and tracks the score of the game.
-    function game() {
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; i < 5; i++) {
-            const playerSelection = prompt("Enter your weapon: rock, paper, or scissors");
-            const computerSelection = cpuSelected;
-            const roundResult = playRound(playerSelection, computerSelection);
-                console.log(roundResult);
-
-                // should break up this scoreboard logic into its own function to clean up this code line 36-48.
-        if (roundResult.includes("Win")) {
-            playerScore++;
-        } else if (roundResult.includes("Lose")) {
-            computerScore++;
-        }
+function rules(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return "It's a tie!";
+    } else if (
+        (playerSelection === "rock" && computerSelection === "scissors") ||
+        (playerSelection === "paper" && computerSelection === "rock") ||
+        (playerSelection === "scissors" && computerSelection === "paper")
+    ) {
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
+    } else {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
-        if (playerScore > computerScore) {
-            console.log(`You win the game ${playerScore}:${computerScore}`);
-        } else if (computerScore > playerScore) {
-            console.log(`You lost the game ${playerScore}:${computerScore}`);
-        } else {
-            console.log(`You tied ${playerScore}:${computerScore}`);
-  }
 }
 
+var rock = document.getElementById('rock');
+var paper = document.getElementById('paper');
+var scissors = document.getElementById('scissors');
 
-game()
+function cpuSelected() {
+    const choices = ['rock', 'paper', 'scissors']
+    let randomCpu = choices[Math.floor(Math.random() * choices.length)];
+    return randomCpu;
+};
+
+
+rock.addEventListener('click', () => {
+    let playerSelection = 'rock';
+    let computerSelection = cpuSelected();
+    game(playerSelection, computerSelection)
+});
+
+paper.addEventListener('click', () => {
+    let playerSelection = 'paper';
+    let computerSelection = cpuSelected();
+    game(playerSelection, computerSelection)
+});
+
+scissors.addEventListener('click', () => {
+    let playerSelection = 'paper';
+    let computerSelection = cpuSelected();
+    game(playerSelection, computerSelection)
+});
+
+
+var playerScoreText = document.getElementById('playerScoreText');
+var cpuScoreText = document.getElementById('cpuScoreText');
+var textResult = document.getElementById('textResult');
+var fightStats = document.getElementById('fightStats');
+
+let playerScore = 0;
+let cpuScore = 0;
+
+
+function game(playerSelection, computerSelection) {
+
+
+    const roundResult = rules(playerSelection, computerSelection);
+    if (roundResult.includes("Win!")) {
+        playerScore++;
+        fightStats.textContent = `${playerSelection} beats ${computerSelection}.`
+        textResult.textContent =  `You win the round ${playerScore}:${cpuScore}`;
+
+    } else if (roundResult.includes("Lose!")) {
+        cpuScore++;
+        fightStats.textContent = `${computerSelection} beats ${playerSelection}.`
+        textResult.textContent = `You lost the round ${playerScore}:${cpuScore}`;
+
+    } else {
+    textResult.textContent = `You tied ${playerScore}:${cpuScore}`;
+    }
+    playerScoreText.textContent = `${playerScore}`;
+    cpuScoreText.textContent = `${cpuScore}`;
+
+    
+    if (playerScore === 5) {
+        textResult.textContent = 'You win the game!';
+        disableButtons();
+    } else if (cpuScore === 5) {
+        textResult.textContent = 'You lose the game!';
+        disableButtons();
+    };
+
+}
+
+function disableButtons() {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+}
 
